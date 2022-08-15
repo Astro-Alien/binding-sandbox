@@ -10,10 +10,5 @@ export default class BookingForm extends crsbinding.classes.ViewBase {
         this.setProperty("ageRange", "20");
     }
 
-    AgeChanged(newAge) {
-        this.setProperty("ageRange", newAge);
-    }
-    ageRangeChanged(newAge) {
-        this.setProperty("Age", newAge);
-    }
+
 }
