@@ -2,58 +2,84 @@ export default class Booking extends crsbinding.classes.ViewBase {
     async connectedCallback() {
         await super.connectedCallback();
 
-        this.bookingMessage();
+        this._bookingMessage();
     }
 
-    bookingMessage() {
-        const name = document.querySelector("#firstName");
-        const surname = document.querySelector("#lastName");
-        const message = document.querySelector("#message");
+    async disconnectedCallback() {
+        this.formElement.removeEventListener("change", this.changeHandler);
 
-        const age = document.querySelector("#Age");
-        const range = document.querySelector("#Range");
+        this.changeHandler = null;
+        this.nameElement = null;
 
-        message.textContent = "Booking for " + name.value + " " + surname.value;
+        this.surnameElement = null;
+        this.messageElement = null;
 
-        document.addEventListener("change", (event) => {
-            if (event.target == name || event.target == surname) {
-                message.textContent = "Booking for " + name.value + " " + surname.value;
-            }
-            if (event.target == age) {
-                range.value = age.value;
-                this.ageValidation(age.value);
-            }
-            if (event.target == range) {
-                age.value = range.value;
-                this.ageValidation(range.value);
-            }
-        });
+        this.ageElement = null;
+        this.rangeElement = null;
+
+        this.formElement = null;
+    }
+
+    /**
+     * method is responsible for:
+     *  -Getting elements
+     *  -Assigning elements to variables 
+     *  -Initiating event handler
+     */
+    _bookingMessage() {
+
+        this.nameElement = document.querySelector("#firstName");
+        this.surnameElement = document.querySelector("#lastName");
+        this.messageElement = document.querySelector("#message");
+
+        this.ageElement = document.querySelector("#Age");
+        this.rangeElement = document.querySelector("#Range");
+
+        this.formElement = document.querySelector("form");
+
+        this.messageElement.textContent = "Booking for " + this.nameElement.value + " " + this.surnameElement.value;
+
+        this.changeHandler = this._eventFunctionality.bind(this);
+
+        this.formElement.addEventListener("change", this.changeHandler);
 
     }
 
-    ageValidation(ageRange) {
+    /**
+     * 
+     * @param {Event} event  change event
+     * updates current elements
+     */
+    _eventFunctionality(event) {
+            if (event.target == this.nameElement || event.target == this.surnameElement) {
+                this.messageElement.textContent = "Booking for " + this.nameElement.value + " " + this.surnameElement.value;
+            }
+            if (event.target == this.ageElement) {
+                this.rangeElement.value = this.ageElement.value;
+                this._ageValidation(this.ageElement.value);
+            }
+            if (event.target == this.rangeElement) {
+                this.ageElement.value = this.rangeElement.value;
+                this._ageValidation(this.rangeElement.value);
+            }
+
+        }
+        /**
+         * 
+         * @param {Event} ageRange 
+         * Responsible for validating the age and adjusting the colour of the message accordingly
+         */
+    _ageValidation(ageRange) {
 
         if (ageRange < 20) {
-            message.style.color = "red";
+            this.messageElement.style.color = "red";
         } else {
-            message.style.color = "blue";
+            this.messageElement.style.color = "blue";
         }
 
     }
 
-    async disconnectedCallback() {
-        document.removeEventListener("change", (event) => {
-            if (event.target == name || event.target == surname) {
-                message.textContent = "Booking for " + name.value + " " + surname.value;
-            }
-            if (event.target == age) {
-                range.value = age.value;
-                this.ageValidation(age.value);
-            }
-            if (event.target == range) {
-                age.value = range.value;
-                this.ageValidation(range.value);
-            }
-        });
-    }
+
+
+
 }
