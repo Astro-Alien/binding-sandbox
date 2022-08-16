@@ -1,7 +1,7 @@
 export default class Booking extends crsbinding.classes.ViewBase {
     async connectedCallback() {
         await super.connectedCallback();
-
+        this.bookingMessage();
     }
 
     bookingMessage() {
@@ -40,5 +40,6 @@ export default class Booking extends crsbinding.classes.ViewBase {
         }
 
     }
+
 
 }
