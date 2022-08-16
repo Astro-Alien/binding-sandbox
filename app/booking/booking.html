@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Application</title>
+</head>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+    
+    #message,
+    label,
+    h3 {
+        margin: 0.5rem;
+    }
+</style>
+
+<body>
+    <h1>My Application</h1>
+    <form>
+        <h3>Form</h3>
+        <label>
+            <div>First Name</div>
+            <input type="text" value="John" name="name" id="firstName"/>
+        </label>
+
+        <label>
+            <div>Last Name</div>
+            <input type="text" value="Doe" name="surname" id="lastName"/>
+        </label>
+
+        <label>
+            <div>Age</div>
+            <input type="number" value="20" name="age" id="Age"/><br>
+            <input type="range" value="20" name="age" id="Range" min="0" max="50">
+        </label>
+
+        <div id="message"></div>
+    </form>
+
+</body>
+
+</html>

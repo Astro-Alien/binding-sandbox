@@ -15,6 +15,11 @@
             "view": "booking-form"
         },
         {
+            "title": "Booking",
+            "hash": "#booking",
+            "view": "booking"
+        },
+        {
             "title": "Form",
             "hash": "#form",
             "view": "form"
