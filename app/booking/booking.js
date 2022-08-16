@@ -1,6 +1,7 @@
 export default class Booking extends crsbinding.classes.ViewBase {
     async connectedCallback() {
         await super.connectedCallback();
+
         this.bookingMessage();
     }
 
@@ -9,26 +10,25 @@ export default class Booking extends crsbinding.classes.ViewBase {
         const surname = document.querySelector("#lastName");
         const message = document.querySelector("#message");
 
-        surname.addEventListener("change", (event) => {
-            message.textContent = "Booking for " + name.value + " " + surname.value;
-
-        });
-        this.ageFunctionality();
-    }
-
-    ageFunctionality() {
         const age = document.querySelector("#Age");
         const range = document.querySelector("#Range");
 
-        age.addEventListener("change", (event) => {
-            range.value = age.value;
-            this.ageValidation(age.value);
+        message.textContent = "Booking for " + name.value + " " + surname.value;
+
+        document.addEventListener("change", (event) => {
+            if (event.target == name || event.target == surname) {
+                message.textContent = "Booking for " + name.value + " " + surname.value;
+            }
+            if (event.target == age) {
+                range.value = age.value;
+                this.ageValidation(age.value);
+            }
+            if (event.target == range) {
+                age.value = range.value;
+                this.ageValidation(range.value);
+            }
         });
 
-        range.addEventListener("change", (event) => {
-            age.value = range.value;
-            this.ageValidation(range.value);
-        })
     }
 
     ageValidation(ageRange) {
@@ -41,5 +41,19 @@ export default class Booking extends crsbinding.classes.ViewBase {
 
     }
 
-
+    async disconnectedCallback() {
+        document.removeEventListener("change", (event) => {
+            if (event.target == name || event.target == surname) {
+                message.textContent = "Booking for " + name.value + " " + surname.value;
+            }
+            if (event.target == age) {
+                range.value = age.value;
+                this.ageValidation(age.value);
+            }
+            if (event.target == range) {
+                age.value = range.value;
+                this.ageValidation(range.value);
+            }
+        });
+    }
 }
