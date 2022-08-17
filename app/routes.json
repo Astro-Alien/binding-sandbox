@@ -10,15 +10,16 @@
             "hasStyle": true
         },
         {
-            "title": "Booking Form",
-            "hash": "#booking-form",
-            "view": "booking-form"
-        },
-        {
             "title": "Booking",
             "hash": "#booking",
             "view": "booking"
         },
+        {
+            "title": "Booking Form",
+            "hash": "#booking-form",
+            "view": "booking-form"
+        },
+
         {
             "title": "Form",
             "hash": "#form",
