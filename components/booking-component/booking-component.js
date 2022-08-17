@@ -4,22 +4,26 @@
          this.innerHTML = await fetch(
              import.meta.url.replace(".js", ".html")).then(result => result.text());
 
-         this.formElement = this.querySelector("form");
-         this.updateHandler = this._updateBookingMessage.bind(this);
-
          requestAnimationFrame(() => {
-             this.formElement.addEventListener("change", this.updateHandler);
+             this.updateBookingMessageHandler = this._updateBookingMessage.bind(this);
+             this.addEventListener("change", this.updateBookingMessageHandler);
          })
      }
 
      async disconnectedCallback() {
-         this.formElement.removeEventListener("change", this.updateHandler);
-         this.updateHandler = null;
-         this.formElement = null;
+         this.removeEventListener("change", this.updateBookingMessageHandler);
+         this.updateBookingMessageHandler = null;
+
      }
 
      _updateBookingMessage(event) {
 
+
+
      }
+
+
+
+
  }
  customElements.define("booking-component", BookingComponent);
