@@ -1,0 +1,34 @@
+<style>
+    maze-escape-component h2{
+        font-size: 20px;
+    }
+    maze-escape-component .toolbar{
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        background-color:lightsteelblue;
+        width:100%;
+        height: 3rem;
+
+    }
+    maze-escape-component .maze{
+        display: grid;
+        background-color: #000;
+    }
+    maze-escape-component .toolbar select{
+        margin-right: 1rem;
+    }
+</style>
+
+<h2>Maze Escape</h2>
+<div class = "toolbar">
+    <label for="size">maze-size</label>
+    <select id="size" name="size">
+        <option value="sizeTen">10x10</option>
+        <option value="sizeFifteen">15x15</option>
+        <option value="sizeTwenty">20x20</option>
+    </select>
+</div>
+<div class ="maze">
+
+</div>

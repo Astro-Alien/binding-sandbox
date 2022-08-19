@@ -19,7 +19,11 @@
             "hash": "#booking-form",
             "view": "booking-form"
         },
-
+        {
+            "title": "Maze Escape",
+            "hash": "#maze-escape",
+            "view": "maze-escape"
+        },
         {
             "title": "Form",
             "hash": "#form",
