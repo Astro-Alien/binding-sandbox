@@ -14,9 +14,6 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement = null;
         this.selectedElementSize = null;
     }
-    preLoad(){
-        this.setProperty("mazeSizes", "10x10");
-    }
 
     mazeSizeChanged(selectedValue){
         this.selectedElementSize = selectedValue.split("x").map(result => Number(result));
