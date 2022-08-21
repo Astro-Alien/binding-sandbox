@@ -4,16 +4,26 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
     }
     async connectedCallback() {
        await super.connectedCallback();
+
+       this.mazeElement = this.querySelector(".maze");
+
     }
 
     async disconnectedCallback(){
-        this.size = null;
-
+        this.sizeValue = null;
+        this.mazeElement = null;
+        this.selectedElementSize = null;
     }
 
-    selectedSize(event){
-      this.size = event.target.value;
-
+    mazeSizeChanged(selectedValue){
+        this.selectedElementSize = selectedValue.split("x").map(result => Number(result));
+        this.sizeValue = this.selectedElementSize[0];
+        this.createMaze();
+    }
+    createMaze(){
+        this.dimensions = this.sizeValue * 2;
+        this.mazeElement.style = `width: ${this.dimensions}rem; height:${this.dimensions}rem`;
+        this.mazeElement.style.gridTemplate = `repeat(${this.sizeValue},2rem)/repeat(${this.sizeValue},2rem)`;
     }
 
 

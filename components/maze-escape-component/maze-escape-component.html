@@ -16,6 +16,7 @@
     }
     maze-escape-component .maze{
         display: grid;
+        margin-top: 0.5rem;
         background-color: #000;
     }
     maze-escape-component .toolbar select{
@@ -33,7 +34,7 @@
 
 <div class = "toolbar">
     <label>Maze-size</label>
-    <select value.bind = "mazeSizes" change.call="selectedSize">
+    <select value.bind = "mazeSize" >
         <option value="10x10">10x10</option>
         <option value="15x15">15x15</option>
         <option value="20x20">20x20</option>
