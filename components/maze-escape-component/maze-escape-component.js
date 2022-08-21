@@ -1,18 +1,20 @@
-export default class MazeEscapeComponent extends HTMLElement{
+class MazeEscapeComponent extends crsbinding.classes.BindableElement{
+    get html(){
+        return import.meta.url.replace(".js",".html");
+    }
     async connectedCallback() {
-
-        this.innerHTML = await fetch(import.meta.url.replace(".js",".html")).then(result => result.text());
-
-        requestAnimationFrame(()=>{
-
-            this.sizeSelectElement = this.querySelector("#size");
-
-        });
+       await super.connectedCallback();
     }
+
     async disconnectedCallback(){
-        this.sizeSelectElement = null;
+        this.size = null;
+
     }
 
+    selectedSize(event){
+      this.size = event.target.value;
+
+    }
 
 
 }

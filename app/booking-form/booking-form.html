@@ -2,16 +2,22 @@
     h2 {
         margin-left: 1rem;
     }
-    
+
     .booking-form {
         margin: 1em;
     }
-    
+
     label {
         display: flex;
         flex-direction: column;
         margin: 0.5rem 1rem;
         width: 150px;
+    }
+    .red {
+        color: red;
+    }
+    .blue{
+        color: blue;
     }
 </style>
 
@@ -33,4 +39,4 @@
     <input type="range"  value.bind ="Age" min="0" max="50">
 </label>
 
-<div class="booking-form" style.color.if="Age < 20 ? 'red' : 'blue'">Booking for ${firstName} ${lastName}</div>
+<div class="booking-form" classList.if="Age < 20 ? 'red' : 'blue'">Booking for ${firstName} ${lastName}</div>
