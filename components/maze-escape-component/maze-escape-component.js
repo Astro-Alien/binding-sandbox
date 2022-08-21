@@ -12,7 +12,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
     async disconnectedCallback(){
         this.sizeValue = null;
         this.mazeElement = null;
-        this. this.selectedElementSize = null;
+        this.selectedElementSize = null;
     }
     preLoad(){
         this.setProperty("mazeSizes", "10x10");
