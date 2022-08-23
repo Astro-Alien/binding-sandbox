@@ -6,6 +6,10 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         await super.connectedCallback();
         this.mazeElement = this.querySelector(".maze");
         this._createMaze(10, 10);
+
+
+        //event bindings
+
     }
 
     async disconnectedCallback(){
@@ -27,10 +31,19 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         for(let i = 0; i <gridRows * gridColumns; i++){
                this.divElement = document.createElement("div");
                this.divElement.classList.add("gap");
+
+               //Mouse down event test should remove later when implementing handler
+               this.divElement.addEventListener('mouseover', (e)=>{
+                    e.target.style.background = 'black';
+                });
+
                fragment.appendChild(this.divElement);
+
         }
         this.mazeElement.appendChild(fragment);
+
+
     }
-    
+
 }
 customElements.define("maze-escape-component", MazeEscapeComponent);
