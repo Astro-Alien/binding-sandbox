@@ -32,7 +32,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
                this.divElement = document.createElement("div");
                this.divElement.classList.add("gap");
 
-               //Mouse down event test should remove later when implementing handler
+               //Mouse over event test should remove later when implementing handler
                this.divElement.addEventListener('mouseover', (e)=>{
                     e.target.style.background = 'black';
                 });
