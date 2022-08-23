@@ -1,29 +1,32 @@
 <style>
-    booking-component form,
-    input[type="range"] {
-        display: block;
+    div{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3px;
+}
+    input[type="number"]{
+            width: 169px;
     }
 </style>
-
 <form>
-
-    <h3>Form</h3>
     <label>
-        <div>First Name</div>
-        <input data-id="firstName" data-name="John">
-    </label>
 
-    <label>
-        <div>Last Name</div>
-        <input data-id= "lastName" data-surname="Doe">
-    </label>
-
-    <label>
-        <div>Age Name</div>
-        <input type = "number" data-id="Age" data-value="age">
-        <input type="range" min="10" max="50" data-value="age">
+        <div>Name</div>
+        <input data-value="firstName">
 
     </label>
+    <label>
 
-    <div id="message"></div>
+        <div>Surname</div>
+        <input data-value="lastName">
+
+    </label>
+    <label>
+
+        <div>Surname</div>
+        <input type="number" id= "age" data-value = "age" value="20" min="10" max="50"><br>
+        <input type="range" id= "range" data-value = "age" value="20" min="10" max="50">
+
+    </label>
+    <div class="message"></div>
 </form>
