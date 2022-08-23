@@ -22,11 +22,9 @@
          this[event.target.dataset.value](event);
      }
      firstName(event){
-         this.nameElement = this.querySelector("[data-value = 'firstName']")
          this.nameElement = event.target.value;
      }
      lastName(event){
-         this.surnameElement = this.querySelector("[data-value = 'lastName']")
          this.surnameElement = event.target.value;
          this._updateBookingMessage();
      }
