@@ -29,7 +29,7 @@
          this._updateBookingMessage();
      }
      age(event){
-         this.ageElement.value =event.target.value;
+         this.ageElement.value = event.target.value;
          this.rangeElement.value = this.ageElement.value;
          this._changeMessageColor();
      }
