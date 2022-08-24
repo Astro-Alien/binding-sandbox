@@ -11,7 +11,6 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mouseOverHandler = this.mouseOver.bind(this);
         this.mouseUpHandler = this.mouseUp.bind(this);
         this.mazeElement.addEventListener('mousedown',this.mouseDownHandler);
-
     }
     async disconnectedCallback(){
         this.mazeElement.removeEventListener('mousedown',this.mouseDownHandler);
@@ -21,7 +20,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement = null;
         this.selectedElementSize = null;
         this.divElement = null;
-
+        this.divSize = null;
     }
 
     mazeSizeChanged(selectedValue){
@@ -42,30 +41,29 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
                fragment.appendChild(this.divElement);
         }
         this.mazeElement.appendChild(fragment);
-
     }
     mouseDown(event){
             this.color = "black";
-
-            event.target.style.backgroundColor = event.buttons == 1 ? this.color : "lightsteelblue";
-
+            this._changeColor(event);
             this.mazeElement.addEventListener('mouseover',this.mouseOverHandler);
             this.mazeElement.addEventListener('mouseup',this.mouseUpHandler);
             event.stopPropagation();
             event.preventDefault();
     }
     mouseOver(event){
-
-             event.target.style.backgroundColor = event.buttons == 1 ? this.color : "lightsteelblue";
-             event.stopPropagation();
-
+            this._changeColor(event);
+            event.stopPropagation();
     }
     mouseUp(event){
-
         this.mazeElement.removeEventListener('mouseover',this.mouseOverHandler);
         this.mazeElement.removeEventListener('mouseup',this.mouseUpHandler);
         event.stopPropagation();
     }
+    _changeColor(event){
+        let ct = event.target;
 
+        //need to set colour to either .wall or .gap without having errors in functionality.
+        event.target.style.backgroundColor = event.buttons == 1 ? this.color : "blue" ;
+    }
 }
 customElements.define("maze-escape-component", MazeEscapeComponent);
