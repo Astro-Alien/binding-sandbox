@@ -45,15 +45,18 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
 
     }
     mouseDown(event){
-            event.target.style.background = "black";
+            this.color = "black";
+
+            event.target.style.backgroundColor = event.buttons == 1 ? this.color : "lightsteelblue";
 
             this.mazeElement.addEventListener('mouseover',this.mouseOverHandler);
             this.mazeElement.addEventListener('mouseup',this.mouseUpHandler);
             event.stopPropagation();
+            event.preventDefault();
     }
     mouseOver(event){
 
-             event.target.style.background = "black";
+             event.target.style.backgroundColor = event.buttons == 1 ? this.color : "lightsteelblue";
              event.stopPropagation();
 
     }
