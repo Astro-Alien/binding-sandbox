@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47cd4df7-6262-4f90-bca3-fc9f4041ee8b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/maze-escape-component/maze-escape-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/maze-escape-component/maze-escape-component.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +44,7 @@
       <workItem from="1660821093230" duration="864000" />
       <workItem from="1660823137060" duration="2188000" />
       <workItem from="1660826246261" duration="92701000" />
-      <workItem from="1661234478683" duration="29883000" />
+      <workItem from="1661234478683" duration="30231000" />
     </task>
     <servers />
   </component>

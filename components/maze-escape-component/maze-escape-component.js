@@ -44,7 +44,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement.appendChild(fragment);
     }
     mouseDown(event){
-            event.target.style.background = "black";
+           
             this.addEventListener('mouseover',this.mouseOverHandler);
             this.addEventListener('mouseup',this.mouseUpHandler);
             event.stopPropagation();
