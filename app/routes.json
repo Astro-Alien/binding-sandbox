@@ -35,6 +35,11 @@
             "view": "form"
         },
         {
+            "title": "CSS Practice",
+            "hash": "#css-practice",
+            "view": "css-practice"
+        },
+        {
             "title": "About",
             "hash": "#about",
             "view": "about",

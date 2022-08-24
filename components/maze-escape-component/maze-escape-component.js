@@ -5,12 +5,13 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
     async connectedCallback() {
         await super.connectedCallback();
         this.mazeElement = this.querySelector(".maze");
+
         this._createMaze(10, 10);
 
         this.mouseDownHandler = this.mouseDown.bind(this);
         this.mouseOverHandler = this.mouseOver.bind(this);
         this.mouseUpHandler = this.mouseUp.bind(this);
-        this.addEventListener('mousedown',this.mouseDownHandler);
+        this.mazeElement.addEventListener('mousedown',this.mouseDownHandler);
 
     }
     async disconnectedCallback(){
@@ -38,25 +39,29 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         for(let i = 0; i <gridRows * gridColumns; i++){
                this.divElement = document.createElement("div");
                this.divElement.classList.add("gap");
-
+                this.divElement.addEventListener('dblclick', (e)=>{
+                    console.log("left click");
+                })
                fragment.appendChild(this.divElement);
         }
         this.mazeElement.appendChild(fragment);
     }
     mouseDown(event){
-           
-            this.addEventListener('mouseover',this.mouseOverHandler);
-            this.addEventListener('mouseup',this.mouseUpHandler);
+            event.target.style.background = "black";
+            this.mazeElement.addEventListener('mouseover',this.mouseOverHandler);
+            this.mazeElement.addEventListener('mouseup',this.mouseUpHandler);
             event.stopPropagation();
     }
     mouseOver(event){
+
              event.target.style.background = "black";
              event.stopPropagation();
 
     }
     mouseUp(event){
-        this.removeEventListener('mouseover',this.mouseOverHandler);
-        this.removeEventListener('mouseup',this.mouseUpHandler);
+
+        this.mazeElement.removeEventListener('mouseover',this.mouseOverHandler);
+        this.mazeElement.removeEventListener('mouseup',this.mouseUpHandler);
         event.stopPropagation();
     }
 
