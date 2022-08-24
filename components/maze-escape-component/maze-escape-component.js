@@ -5,7 +5,6 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
     async connectedCallback() {
         await super.connectedCallback();
         this.mazeElement = this.querySelector(".maze");
-
         this._createMaze(10, 10);
 
         this.mouseDownHandler = this.mouseDown.bind(this);
@@ -15,7 +14,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
 
     }
     async disconnectedCallback(){
-        this.removeEventListener('mousedown',this.mouseDownHandler);
+        this.mazeElement.removeEventListener('mousedown',this.mouseDownHandler);
         this.mouseDownHandler = null;
         this.mouseOverHandler = null;
         this.mouseUpHandler = null;
@@ -39,15 +38,15 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         for(let i = 0; i <gridRows * gridColumns; i++){
                this.divElement = document.createElement("div");
                this.divElement.classList.add("gap");
-                this.divElement.addEventListener('dblclick', (e)=>{
-                    console.log("left click");
-                })
+
                fragment.appendChild(this.divElement);
         }
         this.mazeElement.appendChild(fragment);
+
     }
     mouseDown(event){
             event.target.style.background = "black";
+
             this.mazeElement.addEventListener('mouseover',this.mouseOverHandler);
             this.mazeElement.addEventListener('mouseup',this.mouseUpHandler);
             event.stopPropagation();
