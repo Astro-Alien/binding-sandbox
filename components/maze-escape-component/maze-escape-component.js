@@ -7,12 +7,10 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement = this.querySelector(".maze");
         this._createMaze(10, 10);
 
-
         this.mouseDownHandler = this.mouseDown.bind(this);
         this.mouseOverHandler = this.mouseOver.bind(this);
         this.mouseUpHandler = this.mouseUp.bind(this);
         this.addEventListener('mousedown',this.mouseDownHandler);
-
 
     }
     async disconnectedCallback(){
@@ -38,8 +36,8 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         for(let i = 0; i <gridRows * gridColumns; i++){
                this.divElement = document.createElement("div");
                this.divElement.classList.add("gap");
-               fragment.appendChild(this.divElement);
 
+               fragment.appendChild(this.divElement);
         }
         this.mazeElement.appendChild(fragment);
     }
