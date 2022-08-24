@@ -1,1 +1,41 @@
+<style>
+
+    h2{
+        margin-left: 1.5rem;
+    }
+    .l1,.l2{
+        display: flex;
+        flex-direction: row;
+    }
+    .d1,.d2{
+        width: 5rem;
+        height: 5rem;
+        background-color:red;
+        margin-left: 0.5rem;
+    }
+    .l2>.d3,.d4{
+        width: 5rem;
+        height: 5rem;
+        background-color:red;
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .d1,.d4{
+        border-radius: 0 50%;
+    }
+    .d2,.d3{
+        border-radius: 50% 0;
+    }
+
+</style>
 <h2>${title}</h2>
+
+<label class="l1">
+        <div class="d1"></div>
+        <div class="d2"></div>
+</label>
+<label class="l2">
+    <div class="d3"></div>
+    <div class="d4"></div>
+</label>
