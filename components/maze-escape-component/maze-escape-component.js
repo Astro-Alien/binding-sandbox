@@ -37,7 +37,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         for(let i = 0; i <gridRows * gridColumns; i++){
                this.divElement = document.createElement("div");
                this.divElement.classList.add("gap");
-
+               //need to add data attributes to differentiate between walls and gaps.
                fragment.appendChild(this.divElement);
         }
         this.mazeElement.appendChild(fragment);
@@ -60,7 +60,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         event.stopPropagation();
     }
     _changeColor(event){
-        let ct = event.target;
+        let eventTarget = event.target;
 
         //need to set colour to either .wall or .gap without having errors in functionality.
         event.target.style.backgroundColor = event.buttons == 1 ? this.color : "blue" ;
