@@ -33,6 +33,7 @@
         border-top: var(--larger-border);
         border-bottom:  var(--larger-border);
         box-sizing: border-box;
+
     }
 
     .d1,.d4{
@@ -117,7 +118,9 @@
         border-top: var(--border);
         border-bottom: var(--smaller-border);
     }
-
+    .attrTest>a:after{
+        content:"The Link is address is: " attr(href) ;
+    }
 </style>
 <h2>${title}</h2>
 <container class = "grid-container">
@@ -126,7 +129,5 @@
     <div class="d3"></div>
     <div class="d4"></div>
 </container>
-
-
 
 
