@@ -8,6 +8,11 @@
 @import "./lib/aside.css";
 @import "./lib/color-classes.css";
 
+* {
+    box-sizing: border-box;
+}
+
 *:focus {
     border: solid 1px blue;
+
 }
