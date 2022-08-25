@@ -1,41 +1,131 @@
 <style>
-
+    :root{
+        --backgroundColor: red;
+        --foregroundColor: green;
+        --size: 40px;
+        --size-pedal: 30px;
+    }
     h2{
-        margin-left: 1.5rem;
+        margin-left:2rem;
     }
-    .l1,.l2{
-        display: flex;
-        flex-direction: row;
-    }
-    .d1,.d2{
-        width: 5rem;
-        height: 5rem;
-        background-color:red;
-        margin-left: 0.5rem;
-    }
-    .l2>.d3,.d4{
-        width: 5rem;
-        height: 5rem;
-        background-color:red;
-        margin-left: 0.5rem;
-        margin-top: 0.5rem;
-    }
+    .grid-container{
+        display: grid;
+        grid-template: repeat(2,5rem)/repeat(2,5rem);
+        grid-gap:3px;
 
+    }
+    .grid-container>div{
+        position: relative;
+        width: 5rem;
+        height: 5rem;
+        margin-left: 1rem;
+        background-color:var(--backgroundColor);
+        border: 1px solid black;
+        box-sizing: border-box;
+
+    }
+    /*First set of pedals*/
     .d1,.d4{
         border-radius: 0 50%;
     }
     .d2,.d3{
         border-radius: 50% 0;
     }
+    .d1:before{
+        content: "";
+
+    }
+    .d2:before{
+        content: "";
+    }
+    .d3:before{
+        content: "";
+    }
+    .d4:before{
+        content: "";
+    }
+
+
+    /*-----Second and Third set of pedals*/
+    .d1-1:before,.d3-1:before,.d4-1:before{
+        content:"";
+        position: absolute;
+        background: var(--foregroundColor);
+        border: 1px solid black;
+        width: var(--size);
+        height: var(--size);
+        z-index:1;
+    }
+    .d1-1:after,.d3-1:after,.d2-1:before{
+        content:"";
+        position: absolute;
+        background: yellow;
+        border: 1px solid black;
+        width: var(--size-pedal);
+        height: var(--size-pedal);
+        z-index: 2;
+    }
+    .d1-1:before{
+        left:78%;
+        top: calc(70% - var(--size)/2);
+        border-radius: 0 50%;
+        transform: rotate(45deg);
+
+    }
+    .d1-1:after{
+        left:59%;
+        border-radius: 0 50%;
+        transform: rotate(-19deg) ;
+        top: calc(95% - var(--size-pedal)/2);
+    }
+    .d2-1:before{
+        right:55%;
+        border-radius: 50% 0;
+        transform: rotate(19deg) ;
+        top: calc(95% - var(--size-pedal)/2);
+    }
+    .d4-1:before{
+        top:calc(24% - var(--size)/2);
+        right:44%;
+        border-radius: 0 50%;
+        transform: rotate(-7deg) ;
+    }
+    .d1-1:after,.d4-1:after{
+        content:"";
+    }
+
+    .d3-1:before{
+        content:"";
+        top:calc(24% - var(--size)/2);
+        left:48%;
+        border-radius: 50% 0;
+        transform: rotate(7deg) ;
+    }
+    .d3-1:after{
+        content:"";
+        right:-25.4%;
+        border-radius: 50% 0;
+        transform: rotate(-45deg) ;
+        top: calc(30% - var(--size-pedal)/2);
+    }
 
 </style>
 <h2>${title}</h2>
+<container class = "grid-container">
+    <div class="d1">
+        <div class="d1-1"></div>
+    </div>
+    <div class="d2">
+        <div class="d2-1"></div>
+    </div>
+    <div class="d3">
+        <div class="d3-1"></div>
+    </div>
+    <div class="d4">
+        <div class="d4-1"></div>
+    </div>
+</container>
 
-<label class="l1">
-        <div class="d1"></div>
-        <div class="d2"></div>
-</label>
-<label class="l2">
-    <div class="d3"></div>
-    <div class="d4"></div>
-</label>
+
+
+

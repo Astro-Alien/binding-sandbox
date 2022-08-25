@@ -29,7 +29,7 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
     }
     _createMaze(gridRows,gridColumns){
         this.divSize = gridRows * 2;
-        this.mazeElement.style = `width:${this.divSize}rem; height${this.divSize}rem`;
+        this.mazeElement.style = `width:${this.divSize}rem; height:${this.divSize}rem`;
         this.mazeElement.innerHTML = "";
         this.mazeElement.style.gridTemplate = `repeat(${gridRows},2rem)/repeat(${gridColumns},2rem)`;
 
