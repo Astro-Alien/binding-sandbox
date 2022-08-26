@@ -33,12 +33,13 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement.innerHTML = "";
         this.mazeElement.style.gridTemplate = `repeat(${gridRows},2rem)/repeat(${gridColumns},2rem)`;
 
-        this.arrayTest = [];
+
         const fragment = document.createDocumentFragment();
+        this.arr = [];
 
         for(let i = 0; i <gridRows; i++){
-            //make use of a 2 dimensional array to get the rows and columns
-            this.arrayTest[i] = [];
+
+            this.arr[i] = [];
 
             for(let j = 0; j < gridColumns; j++){
                 this.divElement = document.createElement("div");
@@ -49,21 +50,23 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
 
                 this.wallDataset = this.divElement.dataset.typeRow;
                 this.endValue = gridRows - 1;
-                this.arrayTest[i][j] = i ;
-                
+                this.arr[i][j] = i;
+
+               //need to use array value to set outer borders
+
                 this.divElement.style.backgroundColor = (this.wallDataset  == "0" || this.wallDataset == this.endValue) ? (this.divElement.classList.add("wall"),this.divElement.classList.remove("gap"))
                     :(this.divElement.classList.add("gap"),this.divElement.classList.remove("wall"));
-
 
                 fragment.appendChild(this.divElement);
             }
 
         }
 
-        console.log(this.arrayTest);
+        console.log(this.arr);
 
         this.mazeElement.appendChild(fragment);
     }
+
     mouseDown(event){
             this._changeColor(event);
             this.mazeElement.addEventListener('mouseover',this.mouseOverHandler);
@@ -82,7 +85,6 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
     }
     _changeColor(event){
 
-        console.log(this.wallDataset);
         event.target.style.backgroundColor = event.buttons == 1 ? (event.target.classList.add("wall"),event.target.classList.remove("gap"))
             :(event.target.classList.add("gap"),event.target.classList.remove("wall"));
 
