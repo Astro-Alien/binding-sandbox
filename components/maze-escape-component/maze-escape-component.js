@@ -38,7 +38,6 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
 
         for(let i = 0; i <gridRows; i++){
             //make use of a 2 dimensional array to get the rows and columns
-
             this.arrayTest[i] = [];
 
             for(let j = 0; j < gridColumns; j++){
@@ -50,9 +49,8 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
 
                 this.wallDataset = this.divElement.dataset.typeRow;
                 this.endValue = gridRows - 1;
-
-
-
+                this.arrayTest[i][j] = i ;
+                
                 this.divElement.style.backgroundColor = (this.wallDataset  == "0" || this.wallDataset == this.endValue) ? (this.divElement.classList.add("wall"),this.divElement.classList.remove("gap"))
                     :(this.divElement.classList.add("gap"),this.divElement.classList.remove("wall"));
 
