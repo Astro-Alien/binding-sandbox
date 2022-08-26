@@ -34,11 +34,16 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement.style.gridTemplate = `repeat(${gridRows},2rem)/repeat(${gridColumns},2rem)`;
 
         const fragment = document.createDocumentFragment();
-        for(let i = 0; i <gridRows * gridColumns; i++){
-               this.divElement = document.createElement("div");
-               this.divElement.classList.add("gap");
-               //need to add data attributes to differentiate between walls and gaps.
-               fragment.appendChild(this.divElement);
+        for(let i = 0; i <gridRows; i++){
+            for(let j = 0; j < gridColumns; j++){
+                this.divElement = document.createElement("div");
+                this.divElement.classList.add("gap");
+
+                //need to add data attributes to differentiate between walls and gaps.
+                this.divElement.dataset.typeRow = i;
+                this.divElement.dataset.typeColumn = i;
+                fragment.appendChild(this.divElement);
+            }
         }
         this.mazeElement.appendChild(fragment);
     }
@@ -59,7 +64,8 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         event.stopPropagation();
     }
     _changeColor(event){
-
+        this.wallDataset =  event.target.dataset.type;
+        console.log(this.wallDataset);
         event.target.style.backgroundColor = event.buttons == 1 ? (event.target.classList.add("wall"),event.target.classList.remove("gap"))
             :(event.target.classList.add("gap"),event.target.classList.remove("wall"));
 
