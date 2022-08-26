@@ -33,14 +33,14 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement.innerHTML = "";
         this.mazeElement.style.gridTemplate = `repeat(${gridRows},2rem)/repeat(${gridColumns},2rem)`;
 
-
+        this.arrayTest = [];
         const fragment = document.createDocumentFragment();
 
         for(let i = 0; i <gridRows; i++){
             //make use of a 2 dimensional array to get the rows and columns
-            this.arrayTest = [];
+
             this.arrayTest[i] = [];
-            
+
             for(let j = 0; j < gridColumns; j++){
                 this.divElement = document.createElement("div");
                 this.divElement.classList.add("gap");
@@ -53,8 +53,8 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
 
 
 
-                // this.divElement.style.backgroundColor = (this.wallDataset  == "0" || this.wallDataset == this.endValue) ? (this.divElement.classList.add("wall"),this.divElement.classList.remove("gap"))
-                //     :(this.divElement.classList.add("gap"),this.divElement.classList.remove("wall"));
+                this.divElement.style.backgroundColor = (this.wallDataset  == "0" || this.wallDataset == this.endValue) ? (this.divElement.classList.add("wall"),this.divElement.classList.remove("gap"))
+                    :(this.divElement.classList.add("gap"),this.divElement.classList.remove("wall"));
 
 
                 fragment.appendChild(this.divElement);
