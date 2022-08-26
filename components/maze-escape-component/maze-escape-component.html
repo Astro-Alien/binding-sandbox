@@ -29,24 +29,24 @@
         font-weight: bold;
         color: black;
     }
-    .gap {
+    maze-escape-component .gap {
         background-color: blue;
         border: 1px solid lightsteelblue;
     }
-    .wall {
+    maze-escape-component .wall {
         background-color: black;
+        border: 1px solid lightsteelblue;
     }
+
 </style>
 
 
 <div class = "toolbar">
     <label>Maze-size</label>
-    <select value.bind = "mazeSize" >
+    <select value.bind = "mazeSize">
         <option value="10x10">10x10</option>
         <option value="15x15">15x15</option>
         <option value="20x20">20x20</option>
     </select>
 </div>
-<div class ="maze">
-
-</div>
+<div class ="maze"></div>
