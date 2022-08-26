@@ -43,7 +43,6 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         this.mazeElement.appendChild(fragment);
     }
     mouseDown(event){
-            this.color = "black";
             this._changeColor(event);
             this.mazeElement.addEventListener('mouseover',this.mouseOverHandler);
             this.mazeElement.addEventListener('mouseup',this.mouseUpHandler);
@@ -60,10 +59,10 @@ class MazeEscapeComponent extends crsbinding.classes.BindableElement{
         event.stopPropagation();
     }
     _changeColor(event){
-        let eventTarget = event.target;
 
-        //need to set colour to either .wall or .gap without having errors in functionality.
-        event.target.style.backgroundColor = event.buttons == 1 ? this.color : "blue" ;
+        event.target.style.backgroundColor = event.buttons == 1 ? (event.target.classList.add("wall"),event.target.classList.remove("gap"))
+            :(event.target.classList.add("gap"),event.target.classList.remove("wall"));
+
     }
 }
 customElements.define("maze-escape-component", MazeEscapeComponent);
